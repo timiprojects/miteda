@@ -1,0 +1,55 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <div class="data-btn">
+           <button onClick="">+ Add</button>
+         </div>
+         <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+                    <th>Partner Type</th>
+                    <th>Organization</th>
+                    <th>Contact Person</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>State</th>
+                    <th>Community</th>
+                    <th width="120px">Action</th>
+                </tr>
+                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].partnertype%></td>
+                    <td><%=data[i].organization%></td>
+                    <td><%=data[i].conperson%></td>
+                    <td id="email"><%=data[i].emailperson%></td>
+                    <td><%=data[i].orgaddress%></td>
+                    <td><%=data[i].partnerstate%></td>
+                    <td><%=data[i].community%></td>
+                    <td>
+                        <a class="a-inside edit" href="../api/partners/edit/<%=data[i].id%>">Edit</a>
+                       
+                        <a class="a-inside delete" href="../api/partners/delete/<%=data[i].id%>">Delete</a>
+
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No Partners</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>

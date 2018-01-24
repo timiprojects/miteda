@@ -1,0 +1,27 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+            
+            <form method="post" action="/api/events/edit/<%=data[0].id%>">
+                <table cellpadding="11">
+                <tr>
+                    <td class="label">Event Name</td><td>: <input type="text" name="event_name" value="<%=data[0].event_name%>" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Event Date</td><td>: <input type="date" name="event_date" value="<%=data[0].event_date%>" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Event State</td><td>: <input type="text" name="event_state" value="<%=data[0].event_state%>" required></td>
+                 </tr>
+                 <tr>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            <span id="message"></span>
+        </div>
+        
+<%- include layouts/footer.ejs %>

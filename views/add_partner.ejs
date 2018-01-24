@@ -1,0 +1,41 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+            
+            <form method="post" action="/api/partners/add">
+                <table cellpadding="11">
+                <tr>
+                    <td class="label">partner type</td><td>: <input type="text" name="partnertype" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">organization</td><td>: <input type="text" name="organization" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">contact person</td><td>: <input type="text" name="conperson" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">email person</td><td>: <input type="text" name="emailperson" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label" valign="top">Address</td><td valign="top">: <textarea name="orgaddress" required cols="30" rows="5"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="label">partner state</td><td>: <input type="text" name="partnerstate" required></td>
+                </tr>
+                <tr>
+                    <td class="label">community</td><td>: <input type="text" name="community" required></td>
+                </tr>
+
+                 <tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            
+        </div>
+        
+<%- include layouts/footer.ejs %>

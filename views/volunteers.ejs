@@ -1,0 +1,52 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <div class="data-btn">
+           <button onClick="">+ Add</button>
+         </div>
+         <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Volunteer Type</th>
+                    <th>Qualification</th>
+                    <th>Event</th>
+                    <th width="120px">Action</th>
+                </tr>
+                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].firstname%></td>
+                    <td><%=data[i].lastname%></td>
+                    <td id="email"><%=data[i].email%></td>
+                    <td><%=data[i].phone%></td>
+                    <td><%=data[i].volunteertype%></td>
+                    <td><%=data[i].qualification%></td>
+                    <td><%=data[i].event%></td>
+                    <td>
+                        <a class="a-inside edit" href="../api/volunteers/edit/<%=data[i].id%>">Edit</a>
+                       
+                        <a class="a-inside delete" href="../api/volunteers/delete/<%=data[i].id%>">Delete</a>
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No Volunteers</td>
+                 </tr>
+            <% } %>
+            </table>
+         </div>
+         <span id="message"></span>
+        </div>
+        
+<%- include layouts/footer.ejs %>
